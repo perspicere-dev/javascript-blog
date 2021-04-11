@@ -38,7 +38,10 @@ const titleClickHandler = function(event) {
   const targetArticle = document.querySelector(articleSelector); //do omwienia sam nato nie wpadłem na to - zmęczenie.
   console.log(targetArticle);
 
-  /* add class 'active' to the correct article */
+  /* [DONE] add class 'active' to the correct article */
+
+  targetArticle.classList.add('active');
+  console.log('targetArticle (with plus): ' + targetArticle);
 }
 
 const links = document.querySelectorAll('.titles a');
@@ -46,3 +49,6 @@ const links = document.querySelectorAll('.titles a');
 for (let link of links) {
   link.addEventListener('click', titleClickHandler); // to jest handler? Jak zauważy kliknięcie - 'click' - to wykona funkcję titleClickHandler?
 }
+/*
+do omwienia:
+Relacje między satłymi ,zmiennymi, funkcjami, eventami - na przykładach. Co mogę czemu "zadać": stałej stałą, stałej funkcję w ktrej jest stała, wywoływanie etc
