@@ -67,6 +67,8 @@ function generateTitleLinks() {
   const articles = document.querySelectorAll(optArticleSelector);
   console.log('oto stała articles znajdująca wsyztskie elementy .post czyli klase w elem. article dzięki document.querySelectorAll(optArticleSelector)')
 
+  let html = '';
+
   for (let article of articles) {
     console.log('wywołano pętlę po artykułach ')
 
@@ -86,20 +88,24 @@ function generateTitleLinks() {
     console.log('oto stała link HTML ktra tworzy kod HTML linka przy użuciu stringa z dodaniem stałych articleId oraz articleTitle ' + linkHTML);
 
 
-    /* insert link into titleList */
+    /* insert link into html variable */
 
-    const insertLink = titleList.insertAdjacentHTML('afterend', linkHTML);
-    console.log('wywołano stałą insertlink ' + titleList + linkHTML);
+    html = html + linkHTML;
+    console.log(html);
+
+    /*const insertLink = titleList.insertAdjacentHTML('afterend', linkHTML);
+    console.log('wywołano stałą insertlink ' + titleList + linkHTML);*/
 
   }
-
+    titleList.innerHTML = html;
 }
 
 generateTitleLinks();
 /*
 do omowienia:
-Przeczytać razem kod - kaczka (co się dzieje, od ogłu - dwie głwne funcje, do szczegłu)
+Przeczytać razem kod - kaczka (CEL!, co się dzieje, od ogłu - dwie głwne funcje, do szczegłu)
 czym jest takie coś?: "titleList.innerHTML = '';": ? w stałej titleList innerHTML ma się rownac nic?
+Nie potrafię wykonac ćwiczenia z "Zbudowanie kodu HTML wszystkich linków" - po wrzuceniu "let html = '';" wyrzuca błąd
 skąd się wzięła stała article z "for (let article of articles) {"? z tego " W dalszej części submodułu założymy, że w deklaracji pętli pojedynczy artykuł został nazwany article."?
 const articleId = article.getAttribute('id'); - konstrukcja tego? Article odwołuje się do tagu w html?
 Relacje między satłymi ,zmiennymi, funkcjami, eventami - na przykładach. Co mogę czemu "zadać": stałej stałą, stałej funkcję w ktrej jest stała, wywoływanie etc.
