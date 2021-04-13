@@ -44,11 +44,7 @@ const titleClickHandler = function(event) {
   console.log('targetArticle (with plus): ' + targetArticle);
 }
 
-const links = document.querySelectorAll('.titles a');
 
-for (let link of links) {
-  link.addEventListener('click', titleClickHandler); // to jest handler? Jak zauważy kliknięcie - 'click' - to wykona funkcję titleClickHandler?
-}
 
 
 const optArticleSelector = '.post',
@@ -60,7 +56,7 @@ function generateTitleLinks() {
   /* remove contents of titleList */
   const titleList = document.querySelector(optTitleListSelector);
   titleList.innerHTML = '';
-  console.log('oto stała titleList usuwająca zawartość listy ul dzięki "titleList.innerHTML =' + titleList )
+  console.log('oto stała titleList usuwająca zawartość listy ul dzięki "titleList.innerHTML =' + titleList)
 
   /* for each article */
 
@@ -74,7 +70,7 @@ function generateTitleLinks() {
 
     /* get the article id */
 
-    const articleId = article.getAttribute('id');//dlaczego
+    const articleId = article.getAttribute('id'); //dlaczego
     console.log('oto stała articleId odczytująca id article: ' + articleId);
 
     /* find the title element */
@@ -93,11 +89,17 @@ function generateTitleLinks() {
     html = html + linkHTML;
     console.log(html);
 
-    /*const insertLink = titleList.insertAdjacentHTML('afterend', linkHTML);
-    console.log('wywołano stałą insertlink ' + titleList + linkHTML);*/
+    //const insertLink = titleList.insertAdjacentHTML('afterend', linkHTML);
+    //console.log('wywołano stałą insertlink ' + titleList + linkHTML);
 
   }
-    titleList.innerHTML = html;
+  titleList.innerHTML = html;
+  const links = document.querySelectorAll('.titles a');
+  console.log('!!!!links:', links);
+  for (let link of links) {
+    link.addEventListener('click', titleClickHandler); // to jest handler? Jak zauważy kliknięcie - 'click' - to wykona funkcję titleClickHandler?
+  }
+
 }
 
 generateTitleLinks();
@@ -111,4 +113,4 @@ const articleId = article.getAttribute('id'); - konstrukcja tego? Article odwoł
 Relacje między satłymi ,zmiennymi, funkcjami, eventami - na przykładach. Co mogę czemu "zadać": stałej stałą, stałej funkcję w ktrej jest stała, wywoływanie etc.
 Szersza praspeltywa - titleClickHandler jest ...co czego słucha, dla kogo - zależności.
 clickedElement = this - co to jest tak na prawdę?
-Przeczytać razem kod - kaczka*/
+*/
