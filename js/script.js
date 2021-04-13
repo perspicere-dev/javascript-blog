@@ -49,6 +49,8 @@ const links = document.querySelectorAll('.titles a');
 for (let link of links) {
   link.addEventListener('click', titleClickHandler); // to jest handler? Jak zauważy kliknięcie - 'click' - to wykona funkcję titleClickHandler?
 }
+
+
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles';
@@ -58,22 +60,36 @@ function generateTitleLinks() {
   /* remove contents of titleList */
   const titleList = document.querySelector(optTitleListSelector);
   titleList.innerHTML = '';
+  console.log('oto stała titleList usuwająca zawartość listy ul dzięki "titleList.innerHTML =' + titleList )
 
   /* for each article */
+
   const articles = document.querySelectorAll(optArticleSelector);
+  console.log('oto stała articles znajdująca wsyztskie elementy .post czyli klase w elem. article dzięki document.querySelectorAll(optArticleSelector)')
 
   for (let article of articles) {
+    console.log('wywołano pętlę po artykułach ')
 
     /* get the article id */
 
+    const articleId = article.getAttribute('id');//dlaczego
+    console.log('oto stała articleId odczytująca id article: ' + articleId);
 
     /* find the title element */
-
     /* get the title from the title element */
+    const articleTitle = article.querySelector(optTitleSelector).innerHTML; //tworzę zmienną articleTitle, odnajduję dzieki niej pierwszy pasujący element .post-title (dzieki querySelector=optTitleSelector=.post-title) z ktrego odzytuje wartosc HTML (.innerHTML)
+    console.log('oto stała articleTitle odnajdująca artykuł dzięki article.querySelector(optTitleSelector) i odczytująca tytuł arykułu dzięki .innerHTML czyli: article.querySelector(optTitleSelector).innerHTML: ' + articleTitle)
 
     /* create HTML of the link */
 
+    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+    console.log('oto stała link HTML ktra tworzy kod HTML linka przy użuciu stringa z dodaniem stałych articleId oraz articleTitle ' + linkHTML);
+
+
     /* insert link into titleList */
+
+    const insertLink = titleList.insertAdjacentHTML('afterend', linkHTML);
+    console.log('wywołano stałą insertlink ' + titleList + linkHTML);
 
   }
 
@@ -81,6 +97,12 @@ function generateTitleLinks() {
 
 generateTitleLinks();
 /*
-do omwienia:
+do omowienia:
+Przeczytać razem kod - kaczka (co się dzieje, od ogłu - dwie głwne funcje, do szczegłu)
+czym jest takie coś?: "titleList.innerHTML = '';": ? w stałej titleList innerHTML ma się rownac nic?
+skąd się wzięła stała article z "for (let article of articles) {"? z tego " W dalszej części submodułu założymy, że w deklaracji pętli pojedynczy artykuł został nazwany article."?
+const articleId = article.getAttribute('id'); - konstrukcja tego? Article odwołuje się do tagu w html?
 Relacje między satłymi ,zmiennymi, funkcjami, eventami - na przykładach. Co mogę czemu "zadać": stałej stałą, stałej funkcję w ktrej jest stała, wywoływanie etc.
-Szersza praspeltywa - titleClickHandler jest ...co czego słucha, dla kogo - zależności.*/
+Szersza praspeltywa - titleClickHandler jest ...co czego słucha, dla kogo - zależności.
+clickedElement = this - co to jest tak na prawdę?
+Przeczytać razem kod - kaczka*/
