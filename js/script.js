@@ -93,13 +93,13 @@ function generateTitleLinks() {
     //console.log('wywołano stałą insertlink ' + titleList + linkHTML);
 
   }
+
   titleList.innerHTML = html;
   const links = document.querySelectorAll('.titles a');
   console.log('!!!!links:', links);
   for (let link of links) {
     link.addEventListener('click', titleClickHandler); // to jest handler? Jak zauważy kliknięcie - 'click' - to wykona funkcję titleClickHandler?
   }
-
 }
 
 generateTitleLinks();
