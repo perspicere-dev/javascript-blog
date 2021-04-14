@@ -103,6 +103,34 @@ function generateTitleLinks() {
 }
 
 generateTitleLinks();
+
+function generateTags(){
+  /* find all articles */
+
+  /* START LOOP: for every article: */
+
+    /* find tags wrapper */
+
+    /* make html variable with empty string */
+
+    /* get tags from data-tags attribute */
+
+    /* split tags into array */
+
+    /* START LOOP: for each tag */
+
+      /* generate HTML of the link */
+
+      /* add generated code to html variable */
+
+    /* END LOOP: for each tag */
+
+    /* insert HTML of all the links into the tags wrapper */
+
+  /* END LOOP: for every article: */
+}
+
+generateTags();
 /*
 do omowienia:
 Przeczytać razem kod - kaczka (CEL!, co się dzieje, od ogłu - dwie głwne funcje, do szczegłu)
@@ -113,4 +141,4 @@ const articleId = article.getAttribute('id'); - konstrukcja tego? Article odwoł
 Relacje między satłymi ,zmiennymi, funkcjami, eventami - na przykładach. Co mogę czemu "zadać": stałej stałą, stałej funkcję w ktrej jest stała, wywoływanie etc.
 Szersza praspeltywa - titleClickHandler jest ...co czego słucha, dla kogo - zależności.
 clickedElement = this - co to jest tak na prawdę?
-*/       
+*/
