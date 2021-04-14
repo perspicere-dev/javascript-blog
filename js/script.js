@@ -113,4 +113,4 @@ const articleId = article.getAttribute('id'); - konstrukcja tego? Article odwoł
 Relacje między satłymi ,zmiennymi, funkcjami, eventami - na przykładach. Co mogę czemu "zadać": stałej stałą, stałej funkcję w ktrej jest stała, wywoływanie etc.
 Szersza praspeltywa - titleClickHandler jest ...co czego słucha, dla kogo - zależności.
 clickedElement = this - co to jest tak na prawdę?
-*/
+*/       
