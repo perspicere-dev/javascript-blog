@@ -50,7 +50,7 @@ const titleClickHandler = function(event) {
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles';
-  optArticleTagsSelector = '.post-tags .list'
+  optArticleTagsSelector = '.post-tags .list' //tagsWrapper
 
 function generateTitleLinks() {
 
@@ -106,29 +106,48 @@ function generateTitleLinks() {
 generateTitleLinks();
 
 function generateTags(){
+
   /* find all articles */
+
+  const articles = document.querySelectorAll(optArticleSelector);
+  console.log('oto stała "articles" odnajdująca wsyztskie artykuły ')
 
   /* START LOOP: for every article: */
 
+  for (let article of articles) {
+    console.log('wywołano pętlę po artykułach ')
+
     /* find tags wrapper */
+
+    const tagsWrapper = article.querySelector(optArticleTagsSelector);
+    console.log('oto stała tagsWrapper odszukująca opakowanie tagow: ' + tagsWrapper);
 
     /* make html variable with empty string */
 
+    let html = '';                            //TODO ktorą część robi pustą? Dlaczego robić pustą skoro usunęliśmy z HTML listę tagow?
+
     /* get tags from data-tags attribute */
+
+    const articleTags = article.getAttribute('data-tags');
+    console.log('odszukane tagi to: ' + articleTags)
 
     /* split tags into array */
 
-    /* START LOOP: for each tag */
+    const articleTagsArray = articleTags.split(' ');
+    console.log('oto stała articleTagsArray dzialąca tagi przy pomocy "split" przy użyciu spacji: ' + articleTagsArray);
 
+    /* START LOOP: for each tag */
+    for (let tag of articleTagsArray) {
       /* generate HTML of the link */
 
       /* add generated code to html variable */
-
+    }
     /* END LOOP: for each tag */
 
     /* insert HTML of all the links into the tags wrapper */
 
   /* END LOOP: for every article: */
+}
 }
 
 generateTags();
