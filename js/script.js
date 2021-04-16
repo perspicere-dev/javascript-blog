@@ -137,20 +137,87 @@ function generateTags(){
     console.log('oto stała articleTagsArray dzialąca tagi przy pomocy "split" przy użyciu spacji: ' + articleTagsArray);
 
     /* START LOOP: for each tag */
+
     for (let tag of articleTagsArray) {
+
       /* generate HTML of the link */
 
-      /* add generated code to html variable */
-    }
-    /* END LOOP: for each tag */
+     const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
+     console.log(linkHTML);
 
-    /* insert HTML of all the links into the tags wrapper */
+     /* add generated code to html variable */
 
-  /* END LOOP: for every article: */
+     html = html + linkHTML;
+     console.log('html to: ' + html);
+
+   }
+   /* END LOOP: for each tag */
+
+   /* insert HTML of all the links into the tags wrapper */
+
+   tagsWrapper.innerHTML = html;
+   console.log('włożono zawartość linków czyli "<li><a href="#tag-' + "tag" + '">' + "tag" + '</a></li>  do wrappera tagów czyli do "tagsWrapper" odpowiadającego .post-tags .list trzymanego w stałej optArticleTagsSelector ')
+
+
+ /* END LOOP: for every article: */
 }
 }
 
 generateTags();
+
+function tagClickHandler(event){
+
+ /* [DONE] prevent default action for this event */
+
+ event.preventDefault();
+
+ /* [DONE] make new constant named "clickedElement" and give it the value of "this" */
+
+ const clickedElement = this;
+ console.log('TagLink was clicked!' + clickedElement);
+
+ /* [DONE] make a new constant "href" and read the attribute "href" of the clicked element */
+
+ const herf = clickedElement.getAttribute('herf');
+ console.log('stała herf odszuakała i zapisała atrybut herf z klikniętego tagu' + herf);
+
+ /* [DONE] make a new constant "tag" and extract tag from the "href" constant */
+
+ const tag = href.replace('#tag-', '');
+ console.log(tag)
+
+ /* [IN PROGRESS] find all tag links with class active */
+
+ const activeTags = document.querrySelestorAll('a.active[href^="#tag-"]') //TODO doczytać jeszcze o co chodzi. a.active oznacza, że aktywne elementy a?
+
+ /* START LOOP: for each active tag link */
+
+   /* remove class active */
+
+ /* END LOOP: for each active tag link */
+
+ /* find all tag links with "href" attribute equal to the "href" constant */
+
+ /* START LOOP: for each found tag link */
+
+   /* add class active */
+
+ /* END LOOP: for each found tag link */
+
+ /* execute function "generateTitleLinks" with article selector as argument */
+}
+
+function addClickListenersToTags(){
+ /* find all links to tags */
+
+ /* START LOOP: for each link */
+
+   /* add tagClickHandler as event listener for that link */
+
+ /* END LOOP: for each link */
+}
+
+addClickListenersToTags();
 /*
 do omowienia:
 Przeczytać razem kod - kaczka (CEL!, co się dzieje, od ogłu - dwie głwne funcje, do szczegłu)
