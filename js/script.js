@@ -45,8 +45,6 @@ const titleClickHandler = function(event) {
 }
 
 
-
-
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles';
@@ -150,8 +148,9 @@ function generateTags(){
      html = html + linkHTML;
      console.log('html to: ' + html);
 
-   }
    /* END LOOP: for each tag */
+
+   }
 
    /* insert HTML of all the links into the tags wrapper */
 
@@ -178,33 +177,55 @@ function tagClickHandler(event){
 
  /* [DONE] make a new constant "href" and read the attribute "href" of the clicked element */
 
- const herf = clickedElement.getAttribute('herf');
- console.log('stała herf odszuakała i zapisała atrybut herf z klikniętego tagu' + herf);
+ const href = clickedElement.getAttribute('href');
+ console.log('stała href odszuakała i zapisała atrybut href z klikniętego tagu' + href);
 
  /* [DONE] make a new constant "tag" and extract tag from the "href" constant */
 
  const tag = href.replace('#tag-', '');
- console.log(tag)
+ console.log('oto stała tag, zapisująca słowo taga poprze zastąpienie #tag- pustym ciągiem znakow'); //
 
- /* [IN PROGRESS] find all tag links with class active */
+ /* [DONE find all tag links with class active */
 
- const activeTags = document.querrySelestorAll('a.active[href^="#tag-"]') //TODO doczytać jeszcze o co chodzi. a.active oznacza, że aktywne elementy a?
+ const activeTags = document.querySelestorAll('a.active[href^="#tag-"]') //TODO doczytać jeszcze o co chodzi. a.active oznacza, że aktywne elementy a?
+ console.log('wywołano funkcję activeTags, ktra odnajduje wszystkie aktywne linki do tagow ktrych href zaczyna się od "#tag-"')
 
  /* START LOOP: for each active tag link */
 
+ for (let activeTag of activeTags){
+
    /* remove class active */
+
+   activeTag.classList.remove('active');
+   console.log('usunięto klasę active z aktywnych tagow "activeTag" ')
 
  /* END LOOP: for each active tag link */
 
+}
+
  /* find all tag links with "href" attribute equal to the "href" constant */
+
+ const tagLinks = document.querySelectorAll('a[href="' + href + '"]')
+ console.log('w ziennej tagLinks zapisano wszytskie linki tagow o atrybucie href takim jak stała const href')
 
  /* START LOOP: for each found tag link */
 
+ for(let tagLink of tagLinks){
+
    /* add class active */
+
+   tagLink.classList.add('active');
+   console.log('dodano klasę active do linkow tagow')
 
  /* END LOOP: for each found tag link */
 
+}
+
  /* execute function "generateTitleLinks" with article selector as argument */
+
+ generateTitleLinks('[data-tags~="' + tag + '"]'); //
+
+
 }
 
 function addClickListenersToTags(){
