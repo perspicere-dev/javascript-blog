@@ -50,10 +50,10 @@ const optArticleSelector = '.post',
   optTitleListSelector = '.titles';
   optArticleTagsSelector = '.post-tags .list' //tagsWrapper
 
-function generateTitleLinks() {
+function generateTitleLinks(customSelector = ''){
 
   /* remove contents of titleList */
-  const titleList = document.querySelector(optTitleListSelector);
+  const articles = document.querySelectorAll(optArticleSelector + customSelector);
   titleList.innerHTML = '';
   console.log('oto stała titleList usuwająca zawartość listy ul dzięki "titleList.innerHTML =' + titleList)
 
@@ -224,11 +224,13 @@ function tagClickHandler(event){
  /* execute function "generateTitleLinks" with article selector as argument */
 
  generateTitleLinks('[data-tags~="' + tag + '"]'); //
+ console.log('wywołano funkcję generateTitleLinks');
 
 
 }
 
 function addClickListenersToTags(){
+
  /* find all links to tags */
 
  /* START LOOP: for each link */
