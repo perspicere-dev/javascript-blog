@@ -53,19 +53,18 @@ const optArticleSelector = '.post',
 function generateTitleLinks(customSelector = ''){
 
   /* remove contents of titleList */
-  const articles = document.querySelectorAll(optArticleSelector + customSelector);
+  const titleList = document.querySelector(optTitleListSelector);
   titleList.innerHTML = '';
   console.log('oto stała titleList usuwająca zawartość listy ul dzięki "titleList.innerHTML =' + titleList)
 
   /* for each article */
 
-  const articles = document.querySelectorAll(optArticleSelector);
-  console.log('oto stała articles znajdująca wsyztskie elementy .post czyli klase w elem. article dzięki document.querySelectorAll(optArticleSelector)')
-
+  const articles = document.querySelectorAll(optArticleSelector + customSelector);
+  console.log('oto stała articles znajdująca wsyztskie elementy .post czyli klase w elem. article dzięki document.querySelectorAll(optArticleSelector)');
   let html = '';
 
   for (let article of articles) {
-    console.log('wywołano pętlę po artykułach ')
+    console.log('wywołano pętlę po artykułach ');
 
     /* get the article id */
 
@@ -86,7 +85,7 @@ function generateTitleLinks(customSelector = ''){
     /* insert link into html variable */
 
     html = html + linkHTML;
-    console.log(html);
+    console.log('oto utworzony link html: ' + html);
 
     //const insertLink = titleList.insertAdjacentHTML('afterend', linkHTML);
     //console.log('wywołano stałą insertlink ' + titleList + linkHTML);
@@ -102,6 +101,8 @@ function generateTitleLinks(customSelector = ''){
 }
 
 generateTitleLinks();
+console.log('wywołano fn generateTitleLinks');
+
 
 function generateTags(){
 
@@ -224,7 +225,7 @@ function tagClickHandler(event){
  /* execute function "generateTitleLinks" with article selector as argument */
 
  generateTitleLinks('[data-tags~="' + tag + '"]'); //
- console.log('wywołano funkcję generateTitleLinks');
+ console.log('wywołano funkcję generateTitleLinks z selektorem atrybutow artkulow');
 
 
 }
